@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HangulIpsum</title>
+  <%= stylesheet_link_tag    "home" %>
+  <%= javascript_include_tag "home" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Hangul Ipsum</h1>
+    </header>
+    <%= yield %>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="span8 offset4">
+  <%= form_tag generate_path(:format => 'json'), :remote => true, :method => :get, :id => 'generate_ipsum' do %>
+    <div class="clearfix">
+      <%= label_tag 'paragraphs' %>
+      <div class="input">
+        <%= number_field_tag :paragraphs, 3, {:in => 1..20, :class => 'span1'} %>
+      </div>
+    </div>
+    <div class="clearfix">
+      <%= label_tag 'length' %>
+      <div class="input">
+        <%= select_tag 'length', options_for_select(['long', 'medium', 'short'].collect{|l| [l,l]}) %>
+      </div>
+    </div>
+    <div class="actions">
+      <%= submit_tag 'generate!', :class => 'btn primary' %>
+    </div>
+  <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span12 offset2 well">
+    <p id="ipsum_result"> </p>
+  </div>
+</div>
