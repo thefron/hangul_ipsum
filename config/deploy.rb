@@ -13,7 +13,7 @@ set :branch, "master"
 set :ssh_options, { :forward_agent => true }
 set :deploy_to, "/var/rails/hangul_ipsum"
 set :assets_prefix, 'assets'
-
+set :asset_env, "RAILS_GROUPS=assets"
 
 role :web, "ec2-176-32-73-243.ap-northeast-1.compute.amazonaws.com"
 
