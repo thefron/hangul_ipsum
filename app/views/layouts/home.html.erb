@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>HangulIpsum</title>
+  <title>한글입숨</title>
   <%= stylesheet_link_tag    "home" %>
   <%= javascript_include_tag "home" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <div class="container">
-    <header>
-      <h1>Hangul Ipsum</h1>
-    </header>
-    <%= yield %>
+    <div class="content">
+      <header class="page-header">
+      <h1>
+        한글입숨
+        <small>여러분이 필요했던 바로 그..</small>
+      </h1>
+      </header>
+      <div class="row">
+        <%= yield %>
+      </div>
+    </div>
+    <footer>
+      <p>
+        Powered by <a href="http://thefron.me" target="_blank">Thefron</a>
+      </p>
+    </footer>
   </div>
 
 </body>
