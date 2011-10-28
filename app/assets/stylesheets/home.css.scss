@@ -3,7 +3,11 @@
 */
 @import 'bourbon';
 
+html {
+  background: url(http://subtlepatterns.com/patterns/roughcloth.png) repeat fixed;
+}
 body {
+  background: transparent;
   font-family: 나눔고딕, 맑은 고딕, 돋움;
 }
 
@@ -11,19 +15,22 @@ body {
   position: relative;
   .content {
     header.page-header {
+      background: rgba(50,50,50,.1);
       padding: 80px 0px;
+      margin-top: 2em;
       h1 {
         text-align: center;
         font-size: 70px;
         line-height: 70px;
         small {
+          color: #777;
           display: block;
           margin-top: 1em;
         }
       }
       .share_buttons {
         position: absolute;
-        top: 1em;
+        top: 3em;
         right: 1em;
         .share_button {
           float: left;
@@ -34,6 +41,16 @@ body {
         }
       }
     }
+
+    #generate_ipsum {
+      label {
+        font-size: 20px;
+      }
+      .btn {
+        font-size: 20px;
+      }
+    }
+
     .ipsum_result_container {
       display: none;
     }

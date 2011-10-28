@@ -10,11 +10,11 @@
     <div class="clearfix">
       <%= label_tag 'length', '문단 길이' %>
       <div class="input">
-        <%= select_tag 'length', options_for_select(['long', 'medium', 'short'].collect{|l| [l,l]}) %>
+        <%= select_tag 'length', options_for_select([['길게', 'long'], ['중간', 'medium'], ['짧게', 'short']]) %>
       </div>
     </div>
-    <div class="actions">
-      <%= submit_tag '생성하기', :class => 'btn primary' %>
+    <div>
+      <%= submit_tag '생성하기', :class => 'btn xxlarge primary' %>
     </div>
   <% end %>
   </div>
