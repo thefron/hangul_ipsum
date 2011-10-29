@@ -16,7 +16,6 @@ class TextSource < ActiveRecord::Base
   end
 
   def flush_cache
-    Rails.cache.delete 'predicates'
-    Rails.cache.delete 'words'
+    Rails.cache.clear
   end
 end

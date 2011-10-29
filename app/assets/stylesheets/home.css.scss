@@ -4,7 +4,7 @@
 @import 'bourbon';
 
 html {
-  background: url(http://subtlepatterns.com/patterns/roughcloth.png) repeat fixed;
+  background: url(asset-path('roughcloth.png', 'assets')) repeat fixed;
 }
 body {
   background: transparent;
@@ -48,6 +48,9 @@ body {
       }
       .btn {
         font-size: 20px;
+      }
+      .help-block {
+        color: #888;
       }
     }
 

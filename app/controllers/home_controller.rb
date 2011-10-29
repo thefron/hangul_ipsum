@@ -1,14 +1,21 @@
 class HomeController < ApplicationController
   def index
+    @text_sources = TextSource.all
   end
 
   def generate_ipsum
     predicates = Rails.cache.fetch('predicates') {
-      TextSource.all.map{|ts| ts.predicates}.flatten
+      Hash[TextSource.all.map{|ts| [ts.id.to_s, ts.predicates]}]
     }
     words = Rails.cache.fetch('words') {
-      TextSource.all.map{|ts| ts.words}.flatten
+      Hash[TextSource.all.map{|ts| [ts.id.to_s, ts.words]}]
     }
+    if params[:text_source_ids]
+      predicates = predicates.select{|k,v| params[:text_source_ids].include? k}
+      words = words.select{|k,v| params[:text_source_ids].include? k}
+    end
+    predicates = predicates.values.flatten
+    words = words.values.flatten
 
     paragraphs = unless params[:paragraphs].nil? then params[:paragraphs].to_i else 3 end
     length = case params[:length]
