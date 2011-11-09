@@ -31,7 +31,7 @@ class HomeController < ApplicationController
     (1..paragraphs).each do |i|
       s = []
       (1..(length + rand(3))).each do |j|
-        s.push ((words.sample(5 + rand(5)) + [predicates.sample]).join(' ')+'.')
+        s.push ((words.sample(3 + rand(6)) + [predicates.sample]).join(' '))
       end
       p.push s.join(' ')
     end
