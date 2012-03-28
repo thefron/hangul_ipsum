@@ -80,10 +80,28 @@ body {
 
 @media (max-width: 767px) {
   .container {
+    header.page-header {
+      padding-top: 1em;
+      h1 {
+        @include size(80px, 208px);
+        background: asset-url('logo_m.png', 'assets') no-repeat;
+        background-size: 208px 80px;
+      }
+    }
     .content {
       margin-top: 10px;
       #generate_ipsum {
         text-align: center;
+      }
+    }
+    .share_buttons {
+      text-align: center;
+      position: static;
+      margin: 1em 0;
+      .share_button {
+        float: none;
+        margin: 0px .5em;
+        display: inline-block;
       }
     }
   }
