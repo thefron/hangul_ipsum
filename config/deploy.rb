@@ -128,5 +128,5 @@ end
 after  "deploy",             "deploy:cleanup" # keeps only last 5 releases
 after  "deploy:setup",       "deploy:setup_shared"
 before 'deploy:finalize_update', 'deploy:assets:symlink'
-#after "deploy:symlink_shared", "deploy:bundle"
+after "deploy:symlink_shared", "deploy:bundle"
 after 'deploy:symlink_shared', 'deploy:assets:precompile'
