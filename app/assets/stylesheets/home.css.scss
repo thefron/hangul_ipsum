@@ -1,7 +1,4 @@
-/*
- *= require bootstrap
-*/
-@import 'bourbon';
+@import "bootstrap";
 
 html {
   background: url(asset-path('roughcloth.png', 'assets')) repeat fixed;
