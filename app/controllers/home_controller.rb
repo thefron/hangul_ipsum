@@ -42,7 +42,7 @@ class HomeController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json {render :json => data}
+      format.json {render :json => data, :callback => params[:callback]}
     end
   end
 end
