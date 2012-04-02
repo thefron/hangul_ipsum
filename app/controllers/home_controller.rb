@@ -18,7 +18,8 @@ class HomeController < ApplicationController
     words = words.values.flatten
 
     paragraphs = unless params[:paragraphs].nil? then params[:paragraphs].to_i else 3 end
-    length = case params[:length]
+    length = params[:length] || 'medium'
+    sentence_length = case length
              when 'long'
                10
              when 'medium'
@@ -30,7 +31,7 @@ class HomeController < ApplicationController
     p = []
     (1..paragraphs).each do |i|
       s = []
-      (1..(length + rand(3))).each do |j|
+      (1..(sentence_length + rand(3))).each do |j|
         s.push ((words.sample(3 + rand(6)) + [predicates.sample]).join(' '))
       end
       p.push s.join(' ')
