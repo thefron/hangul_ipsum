@@ -1,4 +1,4 @@
-deploy_to = "/var/rack/martini"
+deploy_to = "/home/hangul_ipsum"
 app_root = "#{deploy_to}/current"
 
 pid_file = "#{deploy_to}/shared/pids/unicorn.pid"
