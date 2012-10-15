@@ -1,10 +1,12 @@
-$:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory to the load path.
+#$:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory to the load path.
 require "rvm/capistrano"                  # Load RVM's capistrano plugin.
 set :rvm_ruby_string, '1.9.3'
 
 set :using_rvm, true
 set :rvm_type, :user
-#set :rvm_ruby_string, 'ruby-1.9.2@hangul_ipsum'
+
+require 'bundler/capistrano'
+
 set :application, "Hangul_ipsum"
 set :repository,  "git@github.com:thefron/hangul_ipsum.git"
 
@@ -33,6 +35,11 @@ namespace :deploy do
     update
     restart
   end
+
+  task :setup do
+    run "mkdir -p #{deploy_to} #{deploy_to}/release #{deploy_to}/shared #{deploy_to}/shared/system #{deploy_to}/shared/log #{deploy_to}/shared/pids"
+  end
+
   task :update, :roles => :web do
     transaction do
       update_code
@@ -51,7 +58,6 @@ namespace :deploy do
 
   desc "Zero-downtime restart of Unicorn"
   task :restart do
-    run "kill -s USR2 `cat #{unicorn_pid}`"
     run "if [ -f #{unicorn_pid} ]; then kill -USR2 `cat #{unicorn_pid}`; else cd #{current_path} && bundle exec unicorn_rails -c #{unicorn_conf} -E #{rails_env} -D; fi"
   end
 
@@ -137,6 +143,9 @@ namespace :deploy do
     end
   end
 end
+
+before 'deploy:setup', 'rvm:install_rvm'
+before 'deploy:setup', 'rvm:install_ruby'
 
 after  "deploy",             "deploy:cleanup" # keeps only last 5 releases
 after  "deploy:setup",       "deploy:setup_shared"
