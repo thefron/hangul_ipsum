@@ -5,14 +5,7 @@ gem 'rails', '3.2.0'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-group :development do
-  gem 'sqlite3'
-end
-
-group :production do
-  gem 'pg'
-  gem 'thin'
-end
+gem 'sqlite3'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -27,7 +20,7 @@ gem 'jquery-rails'
 gem 'therubyracer'
 
 # Use unicorn as the web server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
