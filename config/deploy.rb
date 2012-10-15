@@ -11,16 +11,18 @@ set :repository,  "git@github.com:thefron/hangul_ipsum.git"
 set :scm, :git
 set :branch, "master"
 set :ssh_options, { :forward_agent => true }
-set :deploy_to, "/var/rails/hangul_ipsum"
+set :deploy_to, "/home/hangul_ipsum"
 set :assets_prefix, 'assets'
 set :asset_env, "RAILS_GROUPS=assets"
 
-role :web, "ec2-176-32-73-243.ap-northeast-1.compute.amazonaws.com"
+role :web, "abel.doo2.net"
 
-set :user, 'ec2-user'
-ssh_options[:keys] = [File.join(ENV['HOME'], '.ssh', 'thefronkey.pem')]
+set :user, 'hangul_ipsum'
+#ssh_options[:keys] = [File.join(ENV['HOME'], '.ssh', 'thefronkey.pem')]
 default_run_options[:pty] = true
 
+set :unicorn_conf, "#{current_path}/config/unicorn.rb"
+set :unicorn_pid, "#{shared_path}/pids/unicorn.pid"
 
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts
@@ -46,11 +48,23 @@ namespace :deploy do
     strategy.deploy!
     finalize_update
   end
-  task :start do ; end
-  task :stop do ; end
-  task :restart, :roles => :web, :except => { :no_release => true } do
-    run "#{try_sudo} touch #{current_path}/tmp/restart.txt"
+
+  desc "Zero-downtime restart of Unicorn"
+  task :restart do
+    run "kill -s USR2 `cat #{unicorn_pid}`"
+    run "if [ -f #{unicorn_pid} ]; then kill -USR2 `cat #{unicorn_pid}`; else cd #{current_path} && bundle exec unicorn_rails -c #{unicorn_conf} -E #{rails_env} -D; fi"
   end
+
+  desc "Start unicorn"
+  task :start do
+    run "cd #{current_path} ; bundle exec unicorn_rails -c config/unicorn.rb -E #{rails_env} -D"
+  end
+
+  desc "Stop unicorn"
+  task :stop do
+    run "if [ -f #{unicorn_pid} ]; then kill -QUIT `cat #{unicorn_pid}`; fi"
+  end
+
   task :symlink, :roles => :web, :except => { :no_release => true } do
     on_rollback do
       if previous_release
@@ -63,7 +77,6 @@ namespace :deploy do
     run "rm -f #{current_path} && ln -s #{latest_release} #{current_path}"
   end
     task :setup_shared, :roles => :web do
-    sudo "chown -R ec2-user:ec2-user #{shared_path}/.."
     run "mkdir #{shared_path}/db"
 
     # SYMLINK stalk
@@ -101,7 +114,7 @@ namespace :deploy do
       directories = (releases - releases.last(count)).map { |release|
         File.join(releases_path, release) }.join(" ")
 
-        try_sudo "rm -rf #{directories}"
+        run "rm -rf #{directories}"
     end
   end
   namespace :assets do
