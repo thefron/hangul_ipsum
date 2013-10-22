@@ -17,8 +17,8 @@ set :deploy_to, "/home/hangul_ipsum"
 set :assets_prefix, 'assets'
 set :asset_env, "RAILS_GROUPS=assets"
 
-role :web, "abel.doo2.net"
-role :db, "abel.doo2.net", primary: true
+role :web, "hangul.thefron.me"
+role :db, "hangul.thefron.me", primary: true
 
 set :user, 'hangul_ipsum'
 #ssh_options[:keys] = [File.join(ENV['HOME'], '.ssh', 'thefronkey.pem')]
