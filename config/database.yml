@@ -81,5 +81,3 @@ test:
 production:
   <<: *default
   database: kellog-core_production
-  username: kellog-core
-  password: <%= ENV['HANGUL-IPSUM_DATABASE_PASSWORD'] %>
