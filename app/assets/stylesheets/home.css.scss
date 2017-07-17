@@ -2,16 +2,14 @@
  *= require normalize.css/normalize.css
 */
 
-@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
-
 @import "milligram/src/milligram.sass";
 
 body {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Apple Gothic","돋움",Dotum,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 h1.page_title {
-  font-weight: 500;
+  font-weight: 600;
   color: $color-primary;
   padding-top: 8rem;
 }
