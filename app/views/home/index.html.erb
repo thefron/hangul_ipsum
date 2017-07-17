@@ -1,6 +1,6 @@
 <div class="row-fluid">
   <div class="span12">
-  <%= form_tag api_generator_path(format: 'json'), remote: true, method: :post do %>
+  <%= form_tag api_generator_path(format: 'json'), id: 'generate_ipsum', remote: true, method: :post do %>
     <div class="clearfix">
       <%= label_tag 'paragraphs', '문단 수' %>
       <%= number_field_tag :paragraphs, 3, { in: 1..20, class: 'span1' } %>
