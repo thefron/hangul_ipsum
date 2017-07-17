@@ -1,9 +1,9 @@
 <div class="row-fluid">
   <div class="span12">
-  <%= form_tag generate_path(:format => 'json'), :remote => true, :method => :get, :id => 'generate_ipsum' do %>
+  <%= form_tag api_generator_path(format: 'json'), remote: true, method: :post do %>
     <div class="clearfix">
       <%= label_tag 'paragraphs', '문단 수' %>
-      <%= number_field_tag :paragraphs, 3, {:in => 1..20, :class => 'span1'} %>
+      <%= number_field_tag :paragraphs, 3, { in: 1..20, class: 'span1' } %>
     </div>
     <div class="clearfix">
       <%= label_tag 'length', '문단 길이' %>
@@ -11,13 +11,13 @@
     </div>
     <div class="clearfix">
       <%= label_tag 'text_source_ids', '단어소스' %>
-      <%= select_tag 'text_source_ids[]', options_from_collection_for_select(@text_sources, "id", "title"), :multiple => true %>
+      <%= select_tag 'text_source_ids[]', options_from_collection_for_select(@text_sources, "id", "title"), multiple: true %>
       <span class="help-block">
         아무 것도 선택 안하면 모든 소스에서 단어를 가져옵니다.
       </span>
     </div>
     <div>
-      <%= submit_tag '생성하기', :class => 'btn btn-large btn-primary' %>
+      <%= submit_tag '생성하기', class: 'btn btn-large btn-primary' %>
     </div>
   <% end %>
   </div>
