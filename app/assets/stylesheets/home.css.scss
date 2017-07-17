@@ -16,6 +16,22 @@ h1.page_title {
   padding-top: 5rem;
 }
 
+.button.button-large {
+  font-size: 1.4rem;
+  height: 4.5rem;
+  line-height: 4.5rem;
+  padding: 0 2rem;
+}
+
+.ipsum_result_container {
+  display: none;
+}
+
+#ipsum_result {
+  padding: 1rem 1.5rem;
+  background: $color-tertiary;
+}
+
 .share_buttons {
   position: absolute;
   top: 1em;
@@ -27,4 +43,8 @@ h1.page_title {
       margin-top: 1px;
     }
   }
+}
+
+footer {
+  padding-top: 1rem;
 }

@@ -19,7 +19,7 @@ selectText = (element) ->
 $(document).ready ->
   $('#generate_ipsum').on('ajax:success', (e, xhr) ->
     $('.ipsum_result_container').fadeIn()
-    $('#ipsum_result').html xhr.ipsum
+    $('#ipsum_result').html xhr.ipsum.replace(/(?:\r\n|\r|\n)/g, '<br />')
     _gaq.push(['_trackEvent', 'Ipsum', 'Generate'])
   )
   $('#ipsum_result').click ->
