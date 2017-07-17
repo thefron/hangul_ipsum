@@ -33,14 +33,20 @@ h1.page_title {
 }
 
 .share_buttons {
-  position: absolute;
-  top: 1em;
-  right: 0;
+  padding-top: 1rem;
+  iframe {
+    vertical-align: middle;
+  }
+
   .share_button {
-    float: left;
-    margin-left: .5em;
+    font-size: 1px;
+  	display: inline-block;
+  	width: 110px;
+    &.twitter {
+      width: 70px;
+    }
     &.google {
-      margin-top: 1px;
+    	width: 75px;
     }
   }
 }

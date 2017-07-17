@@ -19,32 +19,12 @@ html
     = csrf_meta_tags
   body
     = yield
-    .share_buttons.clearfix
-      .container
-        .share_button.twitter
-          a.twitter-share-button data-count="vertical" data-lang="en" data-text=("한글 버전의 Lorem Ipsum") data-url="http://hangul.thefron.me" data-via="thefron" href="https://twitter.com/share"  트윗하기
-        .share_button.google
-          plusone href="http://hangul.thefron.me" size="tall"
-        .share_button.facebook
-          .fb-like data-href="http://hangul.thefron.me" data-layout="box_count" data-send="false" data-show-faces="false" data-width="55"
-    footer
-      .container
-        .row
-          p
-            | Powered by
-            a href="http://thefron.me" rel="author" target="_blank"  Thefron
-    #fb-root
-    javascript:
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {return;}
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=178809282203022";
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-    script src="//platform.twitter.com/widgets.js" type="text/javascript"
-    script src="https://apis.google.com/js/plusone.js" type="text/javascript"
-      | {lang: 'ko'}
+    = render 'share_buttons'
+    .container
+      footer
+        p
+          | Powered by
+          a href="http://thefron.me" rel="author" target="_blank"  Thefron
     javascript:
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-26626211-1']);
