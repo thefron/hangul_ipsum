@@ -40,7 +40,7 @@ class TextSourcesController < ApplicationController
   # POST /text_sources
   # POST /text_sources.json
   def create
-    @text_source = TextSource.new(params[:text_source])
+    @text_source = TextSource.new(text_source_params)
 
     respond_to do |format|
       if @text_source.save
@@ -59,7 +59,7 @@ class TextSourcesController < ApplicationController
     @text_source = TextSource.find(params[:id])
 
     respond_to do |format|
-      if @text_source.update_attributes(params[:text_source])
+      if @text_source.update_attributes(text_source_params)
         format.html { redirect_to @text_source, notice: 'Text source was successfully updated.' }
         format.json { head :ok }
       else
@@ -79,5 +79,11 @@ class TextSourcesController < ApplicationController
       format.html { redirect_to text_sources_url }
       format.json { head :ok }
     end
+  end
+
+  protected
+
+  def text_source_params
+    params.require(:text_source).permit(:title, :content)
   end
 end
