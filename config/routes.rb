@@ -1,8 +1,7 @@
-HangulIpsum::Application.routes.draw do
+Rails.application.routes.draw do
+  root to: 'home#index'
 
-  root :to => 'home#index'
-  match 'generate', :to => 'home#generate_ipsum', :via => 'get'
-
-  resources :text_sources
-
+  namespace :api, defaults: { format: :json } do
+    resource :generator, only: :create
+  end
 end
