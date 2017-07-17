@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'rails', '~> 5.1.2'
+gem 'slim-rails'
 
 gem 'pg'
 

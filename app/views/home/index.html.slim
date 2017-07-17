@@ -1,0 +1,26 @@
+body
+  .row
+    header.page-header.span5
+      h1
+        | 한글입숨
+      h2 무의미한 한글 텍스트 생성기입니다.
+    .span7.content
+      .row-fluid
+        .span12
+          = form_tag api_generator_path(format: 'json'), id: 'generate_ipsum', remote: true, method: :post do
+            .clearfix
+              = label_tag 'paragraphs', '문단 수'
+              = number_field_tag :paragraphs, 3, { in: 1..20, class: 'span1' }
+            .clearfix
+              = label_tag 'length', '문단 길이'
+              = select_tag 'length', options_for_select([['길게', 'long'], ['중간', 'medium'], ['짧게', 'short']])
+            .clearfix
+              = label_tag 'text_source_ids', '단어소스'
+              = select_tag 'text_source_ids[]', options_from_collection_for_select(@text_sources, "id", "title"), multiple: true
+              span.help-block
+                | 아무 것도 선택 안하면 모든 소스에서 단어를 가져옵니다.
+            div
+              = submit_tag '생성하기', class: 'btn btn-large btn-primary'
+      .row-fluid.ipsum_result_container
+        .span12.well
+          p#ipsum_result

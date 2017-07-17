@@ -1,0 +1,55 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    title 한글입숨
+    meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0" name="viewport" /
+    meta content=("한글입숨 - 무의미한 한글 텍스트 생성기") property="og:title" /
+    meta content="website" property="og:type" /
+    meta content="http://hangul.thefron.me" property="og:url" /
+    meta content="" property="og:image" /
+    meta content="한글입숨" property="og:site_name" /
+    meta content="100000800851255" property="fb:admins" /
+    meta content=("한글판 로렘입숨. 무의미한 한글 텍스트를 생성해 줍니다.") property="og:description" /
+    meta content=("한글판 로렘입숨. 무의미한 한글 텍스트를 생성해 줍니다.") name="description" /
+    meta content="한글, 로렘입숨, lorem ipsum, 한글입숨" name="keyword" /
+    link href="http://hangul.thefron.me/" rel="canonical" /
+    = stylesheet_link_tag    'home'
+    = javascript_include_tag 'home'
+    = csrf_meta_tags
+  body
+    .container
+      = yield
+    .share_buttons.clearfix
+      .share_button.twitter
+        a.twitter-share-button data-count="vertical" data-lang="en" data-text=("한글 버전의 Lorem Ipsum") data-url="http://hangul.thefron.me" data-via="thefron" href="https://twitter.com/share"  트윗하기
+      .share_button.google
+        plusone href="http://hangul.thefron.me" size="tall"
+      .share_button.facebook
+        .fb-like data-href="http://hangul.thefron.me" data-layout="box_count" data-send="false" data-show-faces="false" data-width="55"
+    footer
+      p
+        | Powered by
+        a href="http://thefron.me" rel="author" target="_blank"  Thefron
+    #fb-root
+    javascript:
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=178809282203022";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    script src="//platform.twitter.com/widgets.js" type="text/javascript"
+    script src="https://apis.google.com/js/plusone.js" type="text/javascript"
+      | {lang: 'ko'}
+    javascript:
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-26626211-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
