@@ -80,4 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: kellog-core_production
+  url: <%= ENV['DATABASE_URL'] %>
