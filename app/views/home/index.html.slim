@@ -4,21 +4,25 @@
       h1.page_title
         | 한글입숨
       p
-        | 무의미한 한글 텍스트 생성기입니다.
-        a href="http://www.lipsum.com/" 왜 사용하나요?
+        | 무의미한 한글 텍스트 생성기입니다.<br/>
+        a href="http://www.lipsum.com/" target="_blank" 왜 사용하나요?
   .row
     .column
       = form_tag api_generator_path(format: 'json'), id: 'generate_ipsum', remote: true, method: :post do
         .row
           .column
-            = label_tag 'paragraphs', '문단 수'
-            = number_field_tag :paragraphs, 3, { in: 1..20 }
+            .row
+              .column
+                = label_tag 'paragraphs', '문단 수'
+                = number_field_tag :paragraphs, 3, { in: 1..20 }
+              .column
+                = label_tag 'length', '문단 길이'
+                = select_tag 'length', options_for_select([['길게', 'long'], ['중간', 'medium'], ['짧게', 'short']])
           .column
-            = label_tag 'length', '문단 길이'
-            = select_tag 'length', options_for_select([['길게', 'long'], ['중간', 'medium'], ['짧게', 'short']])
-          .column
-            = label_tag 'text_source_ids', '텍스트 소스'
-            = select_tag 'text_source_ids[]', options_from_collection_for_select(@text_sources, "id", "title")
+            .row
+              .column
+                = label_tag 'text_source_ids', '텍스트 소스'
+                = select_tag 'text_source_ids[]', options_from_collection_for_select(@text_sources, "id", "title")
         .row
           .column
             = submit_tag '생성하기', class: 'button button-large button-outline'

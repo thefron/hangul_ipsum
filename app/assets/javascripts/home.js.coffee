@@ -24,5 +24,4 @@ $(document).ready ->
   )
   $('#ipsum_result').click ->
     selectText(@)
-
   @
