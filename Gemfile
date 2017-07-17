@@ -13,6 +13,7 @@ gem 'pg'
 gem 'sprockets'
 gem 'sass-rails'
 gem 'coffee-rails'
+gem 'autoprefixer-rails'
 gem 'uglifier'
 gem 'therubyracer', platforms: :ruby
 

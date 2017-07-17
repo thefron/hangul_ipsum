@@ -1,106 +1,30 @@
-$primaryButtonBackground: #555;
-$baseFontSize: 15;
-$baseLineHeight: 1.5;
+/*
+ *= require normalize.css/normalize.css
+*/
+
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
 @import "milligram/src/milligram";
 
-html {
-  background: url(asset-path('bright_squares.png')) repeat;
-}
 body {
-  background: transparent;
-  font-family: 나눔고딕, 맑은 고딕, 돋움;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
-.container {
-  position: relative;
-  header.page-header {
-    padding: 40px 0px;
-    margin-top: 2em;
-    text-align: center;
-    position: relative;
-    h1 {
-      margin: 0px auto;
-      text-indent: -9999px;
-      background: asset-url('logo.png') no-repeat;
-    }
-    h2 {
-      font-size: $baseFontSize + 3;
-      font-weight: normal;
-      color: #777;
-      display: block;
-      margin-top: 2em;
-    }
-  }
-
-  .content {
-    margin-top: 100px;
-    #generate_ipsum {
-      label {
-        font-size: 20px;
-      }
-      .btn {
-        margin-top: 1em;
-        font-size: 20px;
-      }
-      .help-block {
-        color: #888;
-      }
-    }
-
-    .ipsum_result_container {
-      display: none;
-      .well {
-        background-color: #CFCFCF;
-        p {
-          font-size: $baseFontSize + 2;
-          line-height: $baseLineHeight + 2;
-        }
-      }
-    }
-  }
-  footer {
-    p {
-      text-align: center;
-    }
-  }
-  .share_buttons {
-    position: absolute;
-    top: 1em;
-    right: 0;
-    .share_button {
-      float: left;
-      margin-left: .5em;
-      &.google {
-        margin-top: 1px;
-      }
-    }
-  }
+h1.page_title {
+  font-weight: 500;
+  color: $color-primary;
+  padding-top: 5rem;
 }
 
-@media (max-width: 767px) {
-  .container {
-    header.page-header {
-      padding-top: 1em;
-      h1 {
-        background: asset-url('logo_m.png') no-repeat;
-        background-size: 208px 80px;
-      }
-    }
-    .content {
-      margin-top: 10px;
-      #generate_ipsum {
-        text-align: center;
-      }
-    }
-    .share_buttons {
-      text-align: center;
-      position: static;
-      margin: 1em 0;
-      .share_button {
-        float: none;
-        margin: 0px .5em;
-        display: inline-block;
-      }
+.share_buttons {
+  position: absolute;
+  top: 1em;
+  right: 0;
+  .share_button {
+    float: left;
+    margin-left: .5em;
+    &.google {
+      margin-top: 1px;
     }
   }
 }
