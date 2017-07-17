@@ -6,13 +6,13 @@ class TextSource < ActiveRecord::Base
 
   def self.all_predicates
     Rails.cache.fetch('predicates') do
-      Hash[all.map { |ts| [ts.id.to_s, ts.predicates] }]
+      Hash[all.map { |ts| [ts.id, ts.predicates] }]
     end
   end
 
   def self.all_words
     Rails.cache.fetch('words') do
-      Hash[all.map { |ts| [ts.id.to_s, ts.words] }]
+      Hash[all.map { |ts| [ts.id, ts.words] }]
     end
   end
 
