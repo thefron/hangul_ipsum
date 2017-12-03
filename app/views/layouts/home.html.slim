@@ -7,13 +7,24 @@ html
     meta content=("한글입숨 - 무의미한 한글 텍스트 생성기") property="og:title" /
     meta content="website" property="og:type" /
     meta content="http://hangul.thefron.me" property="og:url" /
-    meta content="" property="og:image" /
+    meta content=image_url('apple-touch-icon.png') property="og:image" /
     meta content="한글입숨" property="og:site_name" /
     meta content="100000800851255" property="fb:admins" /
     meta content=("한글판 로렘입숨. 무의미한 한글 텍스트를 생성해 줍니다.") property="og:description" /
     meta content=("한글판 로렘입숨. 무의미한 한글 텍스트를 생성해 줍니다.") name="description" /
     meta content="한글, 로렘입숨, lorem ipsum, 한글입숨" name="keyword" /
     link href="http://hangul.thefron.me/" rel="canonical" /
+
+    // Favicons
+    link rel="apple-touch-icon" sizes="180x180" href=image_path('apple-touch-icon.png')
+    link rel="icon" type="image/png" sizes="32x32" href=image_path('favicon-32x32.png')
+    link rel="icon" type="image/png" sizes="16x16" href=image_path('favicon-16x16.png')
+    link rel="manifest" href=asset_path('manifest.json')
+    link rel="mask-icon" href=image_path('safari-pinned-tab.svg') color="#5bbad5"
+    meta name="msapplication-TileColor" content="#9f00a7"
+    meta name="msapplication-TileImage" content=image_path('mstile-150x150.png')
+    meta name="theme-color" content="#ffffff"
+
     = stylesheet_link_tag    'home'
     = javascript_include_tag 'home'
     = csrf_meta_tags
