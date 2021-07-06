@@ -18,7 +18,7 @@ gem 'autoprefixer-rails'
 gem 'uglifier'
 gem 'therubyracer', platforms: :ruby
 
-gem 'puma', '~> 3.9'
+gem 'puma', '~> 5.3'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
