@@ -1,0 +1,11 @@
+ingress:
+  enabled: true
+  hosts:
+    - host: hangul.thefron.me
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+   - secretName: hangul-ipsum-cert
+     hosts:
+       - hangul.thefron.me
