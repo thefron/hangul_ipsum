@@ -1,4 +1,4 @@
-ruby '3.1.2'
+ruby '3.1.3'
 source 'http://rubygems.org'
 
 git_source(:github) do |repo_name|
@@ -13,7 +13,8 @@ gem 'sqlite3'
 
 gem 'sprockets'
 gem 'sass-rails'
-gem 'coffee-rails'
+gem 'jquery-rails'
+gem 'milligram'
 gem 'autoprefixer-rails'
 gem 'uglifier'
 

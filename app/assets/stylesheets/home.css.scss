@@ -1,8 +1,4 @@
-/*
- *= require normalize.css/normalize.css
-*/
-
-@import "milligram/src/milligram.sass";
+@import "milligram";
 
 body {
   font-family: -apple-system,system-ui,BlinkMacSystemFont,"Apple Gothic","돋움",Dotum,"Helvetica Neue",Helvetica,Arial,sans-serif;
