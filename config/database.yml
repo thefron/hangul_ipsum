@@ -84,4 +84,4 @@ test:
 #
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: db/data/production.sqlite3

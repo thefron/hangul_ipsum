@@ -1,5 +1,10 @@
+image:
+  tag: 0.1.1
+
 ingress:
   enabled: true
+  annotations:
+    cert-manager.io/cluster-issuer: cloudflare-issuer
   hosts:
     - host: hangul.thefron.me
       paths:
@@ -9,3 +14,7 @@ ingress:
    - secretName: hangul-ipsum-cert
      hosts:
        - hangul.thefron.me
+
+env:
+  - name: RAILS_ENV
+    value: production
