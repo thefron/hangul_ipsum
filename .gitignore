@@ -5,6 +5,10 @@
 !/log/.keep
 !/tmp/.keep
 
+/tmp/pids/*
+!/tmp/pids/
+!/tmp/pids/.keep
+
 db/*.sqlite3
 .sass-cache/
 .DS_Store
