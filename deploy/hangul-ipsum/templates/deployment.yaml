@@ -75,6 +75,8 @@ spec:
                   key: secret-key-base
             - name: RAILS_SERVE_STATIC_FILES
               value: "true"
+            - name: RAILS_LOG_TO_STDOUT
+              value: "true"
             {{- range .Values.env }}
             - name: {{ .name }}
               value: {{ .value }}

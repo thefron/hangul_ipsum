@@ -1,6 +1,8 @@
 //= require jquery
 //= require jquery_ujs
 
+window.dataLayer = window.dataLayer || [];
+
 const selectText = (element) => {
   const t = $(element)[0];
 
@@ -21,7 +23,11 @@ $(document).ready(function () {
   $("#generate_ipsum").on("ajax:success", function (e, xhr) {
     $(".ipsum_result_container").fadeIn();
     $("#ipsum_result").html(xhr.ipsum.replace(/(?:\r\n|\r|\n)/g, "<br />"));
-    window._gaq.push(["_trackEvent", "Ipsum", "Generate"]);
+
+    window.dataLayer.push({
+      event: "click",
+      value: "generate",
+    });
   });
 
   $("#ipsum_result").click(function () {
